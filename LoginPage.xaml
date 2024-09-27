@@ -1,0 +1,38 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IMProWater.LoginPage"
+             BackgroundColor="White">
+
+    <Grid>
+        <Image Source="tlo.jpg" Aspect="AspectFill" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="2" />
+
+        <StackLayout Padding="30" Spacing="10"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center">
+            <Label Text="Logowanie" FontSize="30" HorizontalOptions="Center" TextColor="Black" Margin="0, 0, 0, 20"/>
+            <Frame BackgroundColor="White" CornerRadius="5" Padding="5" Margin="0, 0, 0, 10">
+                <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email" WidthRequest="250" HorizontalOptions="Center"/>
+            </Frame>
+            <Frame BackgroundColor="White" CornerRadius="5" Padding="5" Margin="0, 0, 0, 20">
+                <Grid>
+                    <Entry x:Name="PasswordEntry" Placeholder="Hasło" IsPassword="True" WidthRequest="250" HorizontalOptions="Center"/>
+                    <!-- Przycisk z ikoną oka -->
+                    <ImageButton Source="eye.png" WidthRequest="30" HeightRequest="30" Aspect="AspectFit" 
+                                 HorizontalOptions="End" VerticalOptions="Center" Margin="5,0"
+                                 Clicked="OnTogglePasswordVisibilityClicked"/>
+                </Grid>
+            </Frame>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20">
+                <Button Text="Zaloguj" Clicked="OnLoginButtonClicked" WidthRequest="100"/>
+                <Button Text="Powrót" Clicked="OnBackButtonClicked" WidthRequest="100"/>
+            </StackLayout>
+        </StackLayout>
+
+        <Button Text="Wyjście" 
+                HorizontalOptions="End" 
+                VerticalOptions="End" 
+                Margin="10"
+                Clicked="OnExitButtonClicked"/>
+    </Grid>
+
+</ContentPage>
