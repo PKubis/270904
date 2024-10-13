@@ -7,6 +7,7 @@ namespace IMProWater
     public partial class RegisterPage : ContentPage
     {
         private bool _isPasswordVisible = false; // Flaga widocznoœci has³a
+        private bool _isRepeatPasswordVisible = false; // Flaga widocznoœci powtórzonego has³a
 
         public RegisterPage()
         {
@@ -17,6 +18,14 @@ namespace IMProWater
         {
             string email = EmailEntry.Text;
             string password = PasswordEntry.Text;
+            string repeatPassword = RepeatPasswordEntry.Text;
+
+            // Sprawdzenie czy has³a s¹ identyczne
+            if (password != repeatPassword)
+            {
+                await DisplayAlert("B³¹d", "Has³a musz¹ byæ identyczne.", "OK");
+                return;
+            }
 
             // Sprawdzanie czy has³o spe³nia wymogi
             if (!IsPasswordValid(password))
@@ -73,6 +82,15 @@ namespace IMProWater
             PasswordEntry.IsPassword = !_isPasswordVisible;
 
             ((ImageButton)sender).Source = _isPasswordVisible ? "eye_off.png" : "eye.png";
+        }
+
+        // Funkcja obs³uguj¹ca widocznoœæ powtórzenia has³a
+        private void OnToggleRepeatPasswordVisibilityClicked(object sender, EventArgs e)
+        {
+            _isRepeatPasswordVisible = !_isRepeatPasswordVisible;
+            RepeatPasswordEntry.IsPassword = !_isRepeatPasswordVisible;
+
+            ((ImageButton)sender).Source = _isRepeatPasswordVisible ? "eye_off.png" : "eye.png";
         }
     }
 }

@@ -4,34 +4,73 @@
              BackgroundColor="White">
 
     <Grid>
-        <Image Source="tlo.jpg" Aspect="AspectFill" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="2" />
+        <!-- Ustawienie tła z przesunięciem -->
+        <Image Source="tlologin.jpg" Aspect="AspectFit" VerticalOptions="Start" Margin="0,-100,0,0" />
 
-        <StackLayout Padding="30" Spacing="10"
-                     VerticalOptions="Center"
-                     HorizontalOptions="Center">
-            <Label Text="Rejestracja" FontSize="30" HorizontalOptions="Center" TextColor="Black" Margin="0, 0, 0, 20"/>
-            <Frame BackgroundColor="White" CornerRadius="5" Padding="5" Margin="0, 0, 0, 10">
-                <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email" WidthRequest="250" HorizontalOptions="Center"/>
-            </Frame>
-            <Frame BackgroundColor="White" CornerRadius="5" Padding="5" Margin="0, 0, 0, 20">
-                <Grid>
-                    <Entry x:Name="PasswordEntry" Placeholder="Hasło" IsPassword="True" WidthRequest="250" HorizontalOptions="Center"/>
-                    <!-- Przycisk z ikoną oka -->
-                    <ImageButton Source="eye.png" WidthRequest="30" HeightRequest="30" Aspect="AspectFit" 
-                                 HorizontalOptions="End" VerticalOptions="Center" Margin="5,0"
-                                 Clicked="OnTogglePasswordVisibilityClicked"/>
-                </Grid>
-            </Frame>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20">
-                <Button Text="Zarejestruj" Clicked="OnRegisterButtonClicked" WidthRequest="100"/>
-                <Button Text="Powrót" Clicked="OnBackButtonClicked" WidthRequest="100"/>
+        <!-- Układ rejestracji -->
+        <Grid RowDefinitions="Auto,*,Auto" ColumnDefinitions="*,Auto,*">
+            <StackLayout Grid.Row="1" Grid.Column="1" Spacing="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Margin="-80,-200,0,0">
+                <!-- Pole na Email -->
+                <Frame BackgroundColor="White" CornerRadius="25" Padding="5" Margin="0, 0, 0, 10">
+                    <Entry x:Name="EmailEntry" Placeholder="email" Keyboard="Email"
+                           TextColor="Black"
+                           PlaceholderColor="Black"
+                           BackgroundColor="Transparent"
+                           WidthRequest="250" HorizontalOptions="Center"/>
+                </Frame>
+
+                <!-- Pole na Hasło -->
+                <Frame BackgroundColor="White" CornerRadius="25" Padding="5" Margin="0, 0, 0, 20">
+                    <Grid>
+                        <Entry x:Name="PasswordEntry" Placeholder="hasło" IsPassword="True"
+                               TextColor="Black"
+                               PlaceholderColor="Black"
+                               BackgroundColor="Transparent"
+                               WidthRequest="250" HorizontalOptions="Center"/>
+                        <!-- Przycisk z ikoną oka -->
+                        <ImageButton Source="eye.png" WidthRequest="30" HeightRequest="30" Aspect="AspectFit"
+                                     HorizontalOptions="End" VerticalOptions="Center" Margin="5,0"
+                                     Clicked="OnTogglePasswordVisibilityClicked"/>
+                    </Grid>
+                </Frame>
+
+                <!-- Pole na powtórzenie hasła -->
+                <Frame BackgroundColor="White" CornerRadius="25" Padding="5" Margin="0, 0, 0, 20">
+                    <Grid>
+                        <Entry x:Name="RepeatPasswordEntry" Placeholder="powtórz hasło" IsPassword="True"
+                               TextColor="Black"
+                               PlaceholderColor="Black"
+                               BackgroundColor="Transparent"
+                               WidthRequest="250" HorizontalOptions="Center"/>
+                        <!-- Przycisk z ikoną oka dla powtórzenia hasła -->
+                        <ImageButton Source="eye.png" WidthRequest="30" HeightRequest="30" Aspect="AspectFit"
+                                     HorizontalOptions="End" VerticalOptions="Center" Margin="5,0"
+                                     Clicked="OnToggleRepeatPasswordVisibilityClicked"/>
+                    </Grid>
+                </Frame>
+
+                <!-- Guziki Powrót i Zarejestruj -->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20">
+                    <Button Text="Powrót"
+                            BackgroundColor="#5A7F66" TextColor="White"
+                            CornerRadius="30" WidthRequest="150" HeightRequest="60"
+                            Clicked="OnBackButtonClicked" />
+
+                    <Button Text="Zarejestruj"
+                            BackgroundColor="#5A7F66" TextColor="White"
+                            CornerRadius="30" WidthRequest="150" HeightRequest="60"
+                            Clicked="OnRegisterButtonClicked" />
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
+        </Grid>
 
-        <Button Text="Wyjście" 
-                HorizontalOptions="End" 
-                VerticalOptions="End" 
-                Margin="10"
+        <!-- Przycisk Wyjście -->
+        <Button Text="Wyjście"
+                BackgroundColor="#5A7F66" TextColor="White"
+                CornerRadius="30" WidthRequest="150" HeightRequest="60"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                Margin="-80,0,0,70"
                 Clicked="OnExitButtonClicked"/>
     </Grid>
 

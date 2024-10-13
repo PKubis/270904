@@ -10,7 +10,7 @@ namespace IMProWater
 
         public LoginPage()
         {
-            InitializeComponent();
+            InitializeComponent(); // Musi byæ wywo³ane, aby zainicjowaæ elementy XAML
         }
 
         private async void OnLoginButtonClicked(object sender, EventArgs e)

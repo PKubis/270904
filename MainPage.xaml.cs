@@ -23,7 +23,8 @@ namespace IMProWater
         // Funkcja obsługująca zamknięcie aplikacji
         private void OnExitButtonClicked(object sender, EventArgs e)
         {
-            Application.Current.Quit();
+            Application.Current.Quit(); // Zamknięcie aplikacji
         }
+
     }
 }
